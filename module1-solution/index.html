@@ -7,6 +7,26 @@
 	<title></title>
 </head>
 <body>
-
+	<div class="container" ng-controller="LunchCheckController">
+		<div class="row">
+			<div class="col-12">
+				<h1>
+				Module 1 Coding Assignment
+				</h1>
+			</div>
+			<div class="col-12">
+				<input type="text" ng-model="lunchList">
+				<button ng-click="lunchCheck()">
+					Check If Too Much
+				</button>
+			</div>
+			<div class="col-12">
+				<span ng-bind="message"></span>
+			</div>
+		</div>
+		<div class="row">
+					
+		</div>
+	</div>
 </body>
 </html>
