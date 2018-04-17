@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="LunchCheck">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script src="js/app.js"></script>
 	<title></title>
+	<style type="text/css">
+		.error {
+			color: red;
+		}
+		.succes{
+			color: green;
+		}
+		.border-error{
+			border-color: red;
+		}
+		.border-success {
+			border-color: green;
+		}
+	</style>
 </head>
 <body>
 	<div class="container" ng-controller="LunchCheckController">
@@ -13,19 +28,21 @@
 				<h1>
 				Module 1 Coding Assignment
 				</h1>
+				<p>
+					Write a list comma-separated items that you usually eat for lunch, if the number of items in the textbox is less than or equal to 3 (e.g., 1, 2, or 3), a message should show up under to the textbox saying "Enjoy!". If the number of items is greater than 3 (4, 5, and above), the message "Too much!" should show up under the textbox.
+					<p><b>Is NOT consider an empty item</b></p>
+				</p>
 			</div>
 			<div class="col-12">
-				<input type="text" ng-model="lunchList">
+				<input type="text" ng-model="lunchList" 
+				ng-class="message == 'Please enter data first' ? 'border-error' : (message == null ? '' : 'border-success') ">
 				<button ng-click="lunchCheck()">
 					Check If Too Much
 				</button>
 			</div>
-			<div class="col-12">
+			<div class="col-12" ng-class="message == 'Please enter data first' ? 'error' : 'succes'">
 				<span ng-bind="message"></span>
 			</div>
-		</div>
-		<div class="row">
-					
 		</div>
 	</div>
 </body>
